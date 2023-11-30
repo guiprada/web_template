@@ -1,4 +1,4 @@
-html {
+/* html {
 	background-color: rgb(231, 229, 229);
 	font-size: 20px;
   }
@@ -12,3 +12,44 @@ html {
   li {
 	margin-left: 20px;
   }
+ */
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	padding: 0px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.Container {
+	color: white;
+	background-color: rebeccapurple;
+	margin: 0px;
+	padding: 0px;
+	width: auto;
+	height: auto;
+	min-height: 100vh;
+}
+
+.Node {
+	border: 2px solid white;
+	border-radius: 5px;
+	color: white;
+	background-color: black;
+	flex: 20px;
+}
+
+.Bucket {
+	display: flex;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	line-height: 0px;
+	/* flex-wrap: wrap; */
+}

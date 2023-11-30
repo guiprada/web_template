@@ -149,3 +149,16 @@ const colors = [
 	{hex: "#FFFF00", name: "Yellow"},
 	{hex: "#9ACD32", name: "YellowGreen"}
 ];
+
+let colorList = [];
+colors.forEach((color) => {
+	colorList.push(color.name);
+})
+
+///////////////////////////////////////////////////////////////////////////////
+function getRandomColor () {
+	let rnd = Math.floor(Math.random() * colorList.length);
+	return colorList[rnd];
+}
+
+export { getRandomColor };

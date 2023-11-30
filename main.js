@@ -1,77 +1,53 @@
-// Guilherme Cunha Prada - 11/2023
+import { getRandomColor } from "./modules/colors.js";
+
 "use strict";
-
+// Guilherme Cunha Prada - 11/2023
 /////////////////////////////////////////////////////////////////////////////// Functions
-
-let randomColor = function(){
-
-}
-
-let createContainer = function(color, background) {
+let createContainer = function () {
 	let div = document.createElement("div");
-	div.style.color = color || "white";
-	div.style.background = background || "black";
-
+	div.classList.add("Container");
 	return div;
 }
 
-let addContainer = function(parent, color, background) {
-	let container = createContainer(color, background);
+let addContainer = function (parent) {
+	let container = createContainer();
 	parent.appendChild(container);
 
 	return container;
 }
 
-let createNode = function(textContent, color, background, size) {
-	let div = document.createElement("div");
-	div.style.borderRadius = "5px";
-	div.style.border = "1px solid white";
-	div.style.color = color || "white";
-	div.style.background = background || "black";
-	div.flex = size || "200px";
+let createNode = function () {
+	let node = document.createElement("div");
+	node.classList.add("Node");
+
+	return node;
+}
+
+let addTextNode = function (parent, textContent) {
+	let node = createNode();
 
 	let p = document.createElement("p");
 	p.textContent = textContent;
-	p.style.padding = "0px";
-	p.style.marginRight = "2px";
-	p.style.marginLeft = "2px";
 
-	div.appendChild(p);
-	return div;
+	node.appendChild(p);
+	parent.appendChild(node);
+
+	return node;
 }
 
-let addNode = function(parent, textContent, size) {
-	let paragraph = createNode(textContent, size);
-	parent.appendChild(paragraph);
+let createBucket = function (flex_direction, proportion) {
+	let bucket = document.createElement("div");
+	bucket.classList.add("Bucket");
 
-	return paragraph;
+	bucket.style.display = "flex";
+	bucket.style.flexDirection = flex_direction;
+	bucket.style.flex = proportion || "1";
+
+	return bucket;
 }
 
-let createBucket = function(flex_direction, childList, proportion) {
-	let div = document.createElement("div");
-	div.classList.add("Bucket");
-	div.style.display = "flex";
-	div.style.flexDirection = flex_direction;
-	// div.style["flex-wrap"] = "wrap";
-	div.style.flex = proportion || "1";
-	// div.style.border = "1px solid black";
-	div.style.borderRadius = "5px";
-	div.style.margin = "2px";
-	div.style.lineHeight = "0px";
-	div.style.marginTop = "2px";
-	div.style.marginBottom = "2px";
-
-	if (childList !== null) {
-		for (child in childList) {
-			div.appendChild(child);
-		}
-	}
-
-	return div;
-}
-
-let addBucket = function(parent, display, childList, proportion) {
-	let bucket = createBucket(display, childList, proportion);
+let addBucket = function (parent, display, proportion) {
+	let bucket = createBucket(display, proportion);
 	parent.appendChild(bucket);
 
 	return bucket;
@@ -79,49 +55,38 @@ let addBucket = function(parent, display, childList, proportion) {
 /////////////////////////////////////////////////////////////////////////////// Main
 
 let body = document.querySelector("body");
-body.style.margin = "0px";
-body.style.padding = "0px";
-// body.style.color = "white";
-// body.style.background = "black";
 
-let container = document.createElement("div");
-container.style.margin = "0px";
-container.style.padding = "0px";
-container.style.width = "auto";
-container.style.height = "auto";
-container.style.minHeight = "100vh";
-container.style.color = "white";
-container.style.background = "purple";
+let container = createContainer();
 body.appendChild(container);
 
-let outer_bucket = addBucket(container, "row", null);
+let outer_bucket = addBucket(container, "row");
 outer_bucket.style.margin = "0px";
 outer_bucket.style.width = "auto";
 outer_bucket.style.height = "auto";
 outer_bucket.style.background = "grey";
 outer_bucket.style.borderRadius = "0px";
 
-let bucket_1 = addBucket(outer_bucket, "column", null, "2");
+let bucket_1 = addBucket(outer_bucket, "column", "2");
 bucket_1.style.background = "green";
 
-addNode(bucket_1, "Paragrafo 1");
-addNode(bucket_1, "Paragrafo 2");
-addNode(bucket_1, "Paragrafo 3");
-addNode(bucket_1, "Paragrafo 1");
-addNode(bucket_1, "Paragrafo 2");
-addNode(bucket_1, "Paragrafo 3");
+addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
+addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
 
-let bucket_2 = addBucket(outer_bucket, "column", null);
+let bucket_2 = addBucket(outer_bucket, "column");
 bucket_2.style.background = "orange";
 
-addNode(bucket_2, "Paragrafo 1");
-addNode(bucket_2, "Paragrafo 2");
-addNode(bucket_2, "Paragrafo 3");
+addTextNode(bucket_2, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(bucket_2, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(bucket_2, "Paragrafo 3").style.background = getRandomColor();
 
 // for (let i = 1; i<30; i++) {
-// 	let bucket_2 = addBucket(outer_bucket, "column", null);
+// 	let bucket_2 = addBucket(outer_bucket, "column");
 
-// 	addNode(bucket_2, "Paragrafo 1");
-// 	addNode(bucket_2, "Paragrafo 2");
-// 	addNode(bucket_2, "Paragrafo 3");
+// 	addTextNode(bucket_2, "Paragrafo 1");
+// 	addTextNode(bucket_2, "Paragrafo 2");
+// 	addTextNode(bucket_2, "Paragrafo 3");
 // }
