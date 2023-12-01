@@ -1,7 +1,8 @@
+// Guilherme Cunha Prada - 11/2023
+"use strict";
+
 import { getRandomColor } from "./modules/colors.js";
 
-"use strict";
-// Guilherme Cunha Prada - 11/2023
 /////////////////////////////////////////////////////////////////////////////// Functions
 let createContainer = function () {
 	let div = document.createElement("div");
