@@ -39,8 +39,8 @@ let addTextNode = (parent, textContent) => {
 let createStack = (flex_direction, proportion) => {
 	let stack = document.createElement("div");
 	stack.classList.add("Stack");
+	stack.classList.add("Container");
 
-	stack.style.display = "flex";
 	stack.style.flexDirection = flex_direction;
 	stack.style.flex = proportion || "1";
 
@@ -54,17 +54,27 @@ let addStack = (parent, display, proportion) => {
 	return stack;
 }
 
+let createGrid = () => {
+	let grid = document.createElement("div");
+	grid.classList.add("Grid");
+	grid.classList.add("Container");
+
+	return grid;
+}
+
+let addGrid = (parent) => {
+	let grid = createGrid();
+	parent.appendChild(grid);
+
+	return grid
+}
 /////////////////////////////////////////////////////////////////////////////// Main
-
 let body = document.querySelector("body");
-
 let workspace = addWorkspace(body);
 
 //
 let outer_stack = addStack(workspace, "row");
-
 let stack_1 = addStack(outer_stack, "column", "2");
-
 addTextNode(stack_1, "Paragrafo 1").style.background = getRandomColor();
 addTextNode(stack_1, "Paragrafo 2").style.background = getRandomColor();
 addTextNode(stack_1, "Paragrafo 3").style.background = getRandomColor();
@@ -73,13 +83,17 @@ addTextNode(stack_1, "Paragrafo 2").style.background = getRandomColor();
 addTextNode(stack_1, "Paragrafo 3").style.background = getRandomColor();
 
 //
-
 let stack_2 = addStack(outer_stack, "column");
 
-addTextNode(stack_2, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(stack_2, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(stack_2, "Paragrafo 3").style.background = getRandomColor();
+//
+let stack_3 = addStack(outer_stack, "column");
+addTextNode(stack_3, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(stack_3, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(stack_3, "Paragrafo 3").style.background = getRandomColor();
 
 //
+let grid = addGrid(workspace);
+addTextNode(grid, "________");
 
-// let grid =
+//
+let stack_ = addStack(workspace, "rows");
