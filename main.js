@@ -54,7 +54,6 @@ let addStack = (parent, display, proportion) => {
 	return stack;
 }
 
-let createGrid
 /////////////////////////////////////////////////////////////////////////////// Main
 
 let body = document.querySelector("body");
