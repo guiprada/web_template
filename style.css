@@ -9,7 +9,7 @@ p {
 	margin-left: 2px;
 }
 
-.Container {
+.Workspace {
 	color: white;
 	background-color: rebeccapurple;
 	margin: 0px;
@@ -28,7 +28,7 @@ p {
 	/* flex: 20px; */
 }
 
-.Bucket {
+.Stack {
 	display: flex;
 	/* border: 2px solid black;
 	border-radius: 5px; */

@@ -4,27 +4,27 @@
 import { getRandomColor } from "./modules/colors.js";
 
 /////////////////////////////////////////////////////////////////////////////// Functions
-let createContainer = function () {
+let createWorkspace = () => {
 	let div = document.createElement("div");
-	div.classList.add("Container");
+	div.classList.add("Workspace");
 	return div;
 }
 
-let addContainer = function (parent) {
-	let container = createContainer();
-	parent.appendChild(container);
+let addWorkspace = (parent) => {
+	let workspace = createWorkspace();
+	parent.appendChild(workspace);
 
-	return container;
+	return workspace;
 }
 
-let createNode = function () {
+let createNode = () => {
 	let node = document.createElement("div");
 	node.classList.add("Node");
 
 	return node;
 }
 
-let addTextNode = function (parent, textContent) {
+let addTextNode = (parent, textContent) => {
 	let node = createNode();
 
 	let p = document.createElement("p");
@@ -36,43 +36,51 @@ let addTextNode = function (parent, textContent) {
 	return node;
 }
 
-let createBucket = function (flex_direction, proportion) {
-	let bucket = document.createElement("div");
-	bucket.classList.add("Bucket");
+let createStack = (flex_direction, proportion) => {
+	let stack = document.createElement("div");
+	stack.classList.add("Stack");
 
-	bucket.style.display = "flex";
-	bucket.style.flexDirection = flex_direction;
-	bucket.style.flex = proportion || "1";
+	stack.style.display = "flex";
+	stack.style.flexDirection = flex_direction;
+	stack.style.flex = proportion || "1";
 
-	return bucket;
+	return stack;
 }
 
-let addBucket = function (parent, display, proportion) {
-	let bucket = createBucket(display, proportion);
-	parent.appendChild(bucket);
+let addStack = (parent, display, proportion) => {
+	let stack = createStack(display, proportion);
+	parent.appendChild(stack);
 
-	return bucket;
+	return stack;
 }
+
+let createGrid
 /////////////////////////////////////////////////////////////////////////////// Main
 
 let body = document.querySelector("body");
 
-let container = createContainer();
-body.appendChild(container);
+let workspace = addWorkspace(body);
 
-let outer_bucket = addBucket(container, "row");
+//
+let outer_stack = addStack(workspace, "row");
 
-let bucket_1 = addBucket(outer_bucket, "column", "2");
+let stack_1 = addStack(outer_stack, "column", "2");
 
-addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 3").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(stack_1, "Paragrafo 3").style.background = getRandomColor();
 
-let bucket_2 = addBucket(outer_bucket, "column");
+//
 
-addTextNode(bucket_2, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_2, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_2, "Paragrafo 3").style.background = getRandomColor();
+let stack_2 = addStack(outer_stack, "column");
+
+addTextNode(stack_2, "Paragrafo 1").style.background = getRandomColor();
+addTextNode(stack_2, "Paragrafo 2").style.background = getRandomColor();
+addTextNode(stack_2, "Paragrafo 3").style.background = getRandomColor();
+
+//
+
+// let grid =
