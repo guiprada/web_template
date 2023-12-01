@@ -60,14 +60,8 @@ let container = createContainer();
 body.appendChild(container);
 
 let outer_bucket = addBucket(container, "row");
-outer_bucket.style.margin = "0px";
-outer_bucket.style.width = "auto";
-outer_bucket.style.height = "auto";
-outer_bucket.style.background = "grey";
-outer_bucket.style.borderRadius = "0px";
 
 let bucket_1 = addBucket(outer_bucket, "column", "2");
-bucket_1.style.background = "green";
 
 addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
 addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
@@ -77,16 +71,7 @@ addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
 addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
 
 let bucket_2 = addBucket(outer_bucket, "column");
-bucket_2.style.background = "orange";
 
 addTextNode(bucket_2, "Paragrafo 1").style.background = getRandomColor();
 addTextNode(bucket_2, "Paragrafo 2").style.background = getRandomColor();
 addTextNode(bucket_2, "Paragrafo 3").style.background = getRandomColor();
-
-// for (let i = 1; i<30; i++) {
-// 	let bucket_2 = addBucket(outer_bucket, "column");
-
-// 	addTextNode(bucket_2, "Paragrafo 1");
-// 	addTextNode(bucket_2, "Paragrafo 2");
-// 	addTextNode(bucket_2, "Paragrafo 3");
-// }
