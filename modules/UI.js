@@ -1,5 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-
 let createWorkspace = () => {
 	let div = document.createElement("div");
 	div.classList.add("Workspace");
@@ -65,7 +63,6 @@ let addGrid = (parent) => {
 	return grid
 }
 
-///////////////////////////////////////////////////////////////////////////////
 let UI = {
 	createWorkspace,
 	addWorkspace,
@@ -74,6 +71,7 @@ let UI = {
 	createStack,
 	addStack,
 	createGrid,
-	addGrid
+	addGrid,
 }
+
 export { UI }

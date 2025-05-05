@@ -24,7 +24,7 @@ p {
 	margin-left: 2px;
 }
 
-.Container {
+.Workspace {
 	color: white;
 	background-color: rebeccapurple;
 	margin: 0px;
@@ -40,18 +40,28 @@ p {
 	color: white;
 	background-color: black;
 	line-height: 0px;
-	/* flex: 20px; */
+	padding: 2px;
+	flex: 20px;
 }
 
-.Bucket {
-	display: flex;
-	/* border: 2px solid black;
-	border-radius: 5px; */
-	margin: 0px;
-	/* margin-top: 2px;
-	margin-bottom: 2px; */
-	/* line-height: 0px; */
+.Container {
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 2px;
 	width: auto;
 	height: auto;
+}
+
+.Stack {
+	display: flex;
 	/* flex-wrap: wrap; */
+}
+
+.Grid {
+	display: grid;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	/* grid-auto-rows: minmax(20px, auto); */
+	grid-template-rows: 1fr auto;
+	/* gap: 20px; */
 }
