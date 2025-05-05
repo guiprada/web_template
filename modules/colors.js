@@ -151,14 +151,20 @@ const colors = [
 ];
 
 let colorList = [];
+let colorMap = new Map();
 colors.forEach((color) => {
 	colorList.push(color.name);
+	colorMap.set(color.name, color.hex);
 })
 
 ///////////////////////////////////////////////////////////////////////////////
-function getRandomColor () {
+function getRandomColor() {
 	let rnd = Math.floor(Math.random() * colorList.length);
 	return colorList[rnd];
 }
 
-export { getRandomColor };
+function getColorCode(colorName) {
+	return colorMap.get(colorName);
+}
+
+export { getRandomColor, getColorCode };

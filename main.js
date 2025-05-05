@@ -1,6 +1,6 @@
 // Guilherme Cunha Prada - 11/2023
 "use strict";
-import { getRandomColor } from "./modules/colors.js";
+import { getRandomColor, getColorCode } from "./modules/colors.js";
 import { UI } from "./modules/UI.js";
 
 /////////////////////////////////////////////////////////////////////////////// Main
