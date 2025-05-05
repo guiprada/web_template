@@ -2,77 +2,27 @@
 "use strict";
 
 import { getRandomColor } from "./modules/colors.js";
-
-/////////////////////////////////////////////////////////////////////////////// Functions
-let createContainer = function () {
-	let div = document.createElement("div");
-	div.classList.add("Container");
-	return div;
-}
-
-let addContainer = function (parent) {
-	let container = createContainer();
-	parent.appendChild(container);
-
-	return container;
-}
-
-let createNode = function () {
-	let node = document.createElement("div");
-	node.classList.add("Node");
-
-	return node;
-}
-
-let addTextNode = function (parent, textContent) {
-	let node = createNode();
-
-	let p = document.createElement("p");
-	p.textContent = textContent;
-
-	node.appendChild(p);
-	parent.appendChild(node);
-
-	return node;
-}
-
-let createBucket = function (flex_direction, proportion) {
-	let bucket = document.createElement("div");
-	bucket.classList.add("Bucket");
-
-	bucket.style.display = "flex";
-	bucket.style.flexDirection = flex_direction;
-	bucket.style.flex = proportion || "1";
-
-	return bucket;
-}
-
-let addBucket = function (parent, display, proportion) {
-	let bucket = createBucket(display, proportion);
-	parent.appendChild(bucket);
-
-	return bucket;
-}
+import { UI_flexbox } from "./modules/UI_flexbox.js";
 /////////////////////////////////////////////////////////////////////////////// Main
 
 let body = document.querySelector("body");
 
-let container = createContainer();
+let container = UI_flexbox.createContainer();
 body.appendChild(container);
 
-let outer_bucket = addBucket(container, "row");
+let outer_bucket = UI_flexbox.addBucket(container, "row");
 
-let bucket_1 = addBucket(outer_bucket, "column", "2");
+let bucket_1 = UI_flexbox.addBucket(outer_bucket, "column", "2");
 
-addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 1").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 2").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_1, "Paragrafo 3").style.background = getRandomColor();
 
-let bucket_2 = addBucket(outer_bucket, "column");
+let bucket_2 = UI_flexbox.addBucket(outer_bucket, "column");
 
-addTextNode(bucket_2, "Paragrafo 1").style.background = getRandomColor();
-addTextNode(bucket_2, "Paragrafo 2").style.background = getRandomColor();
-addTextNode(bucket_2, "Paragrafo 3").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_2, "Paragrafo 1").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_2, "Paragrafo 2").style.background = getRandomColor();
+UI_flexbox.addTextNode(bucket_2, "Paragrafo 3").style.background = getRandomColor();
