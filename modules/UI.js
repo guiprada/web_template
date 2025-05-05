@@ -66,11 +66,11 @@ let addGrid = (parent) => {
 let UI = {
 	// createWorkspace,
 	addWorkspace,
-	createNode,
+	// createNode,
 	addTextNode,
-	createStack,
+	// createStack,
 	addStack,
-	createGrid,
+	// createGrid,
 	addGrid,
 }
 

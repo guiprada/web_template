@@ -30,5 +30,3 @@ UI.addTextNode(stack_3, "Paragrafo 3").style.background = getRandomColor();
 let grid = UI.addGrid(workspace);
 UI.addTextNode(grid, "________");
 
-//
-let stack_ = UI.addStack(workspace, "rows");
